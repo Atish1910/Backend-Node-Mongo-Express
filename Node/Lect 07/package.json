@@ -1,0 +1,15 @@
+{
+  "name": "npm-test",
+  "version": "1.0.0",
+  "description": "This project is being created to learn about npm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "learn node",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

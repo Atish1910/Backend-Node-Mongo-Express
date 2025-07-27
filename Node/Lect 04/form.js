@@ -1,18 +1,20 @@
 const http = require("http");
+const fs = require("fs");
 
 const requestListener = (request, response) => {
-  // console.log(request.method, request.url, request.headers);
+  console.log(request.url, request.method, request.headers);
+
   if (request.url === "/") {
-    response.setHeader("Content-type", "text/html");
+    response.setHeader("Content-Type", "text/html");
     response.write("<html>");
     response.write("<head><title>i am Default Comp</title></head>");
     response.write("<body>");
-    response.write("<form action='/submit-details' method='POST '>");
+    response.write("<form action='/submit-details' method='POST'>");
     response.write(
       '<input type="text" name="username" placeholder="enter your username"></input>'
     );
     response.write("</br>");
-    response.write("<label for='male'>Male</label>");
+    response.write("<label for=' male'>Male</label>");
     response.write(
       '<input type="radio" id="male" name="gender" value="male"></input>'
     );
@@ -26,21 +28,25 @@ const requestListener = (request, response) => {
     response.write("<body/>");
     response.write("</html>");
     return response.end();
-  } else if (request.url === "/submit-details") {
-    response.setHeader("Content-type", "text/html");
-    response.write("<html>");
-    response.write("<head><title>Title Submit Details </title></head>");
-    response.write("<body><h1>Your form submitted successfully</h1></body>");
-    response.write("</html>");
-    return response.end();
+
+
+  } else if (request.url.toLowerCase() === "/submit-details" && request.method === "POST") {
+    fs.writeFileSync("user.txt", "Atishhh Kamble");
+    response.statusCode = 302;
+    response.setHeader('Location', "/");
   }
+  response.setHeader("Content-Type", "text/html");
+  response.write("<html>");
+  response.write("<head><title>Title Submit Details </title></head>");
+  response.write("<body><h1>Your form submitted successfully</h1></body>");
+  response.write("</html>");
+  return response.end();
 };
 
 const server = http.createServer(requestListener);
 
 const PORT = 4209;
 
-server.listen(PORT, (err) => {
-  if (err) console.log("Error to run server");
-  else console.log(`server is running at ${PORT}`);
+server.listen(PORT, () => {
+  console.log(`server is running at ${PORT}`);
 });
