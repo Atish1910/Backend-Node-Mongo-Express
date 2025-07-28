@@ -1,0 +1,13 @@
+body{
+    color: red;
+    height: "100vh";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+section{
+    background-color: aqua;
+    height: 50vh;
+    border: solid 1px ;
+}
