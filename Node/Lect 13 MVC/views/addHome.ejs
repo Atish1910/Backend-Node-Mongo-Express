@@ -1,0 +1,22 @@
+<%- include("partials/head") %>
+<body>
+    <%- include("partials/nav") %>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h1>Register Your Home Here: </h1>
+                    <form action="/home-added" class="border p-3 rounded-3" method="POST">
+                        <input placeholder="enter your name of house" class="form-control mb-3" type="text" name="houseName"></input>
+                        <input placeholder="price per night " type="text" class="form-control mb-3" name="price"></input>
+                        <input placeholder="Location" type="text" class="form-control mb-3" name="location"></input>
+                        <input placeholder="Rating" type="text" class="form-control mb-3" name="rating"></input>
+                        <input placeholder="enter  Photo url" type="text" class="form-control mb-3" name="photo"></input>
+                        <button type="submit" class="btn btn-success w-100">submit</button>
+                    </form>         
+                </div>
+            </div>
+        </div>
+        </section>
+</body>
+</html>

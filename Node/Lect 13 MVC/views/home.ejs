@@ -1,0 +1,24 @@
+<%- include("partials/head") %>
+<body>
+    <%- include("partials/nav") %>
+    <section class="border">
+        <h1>Here are our register Homes</h1>
+        <ul class="row">
+            <% registeredHomes.forEach(home => { %>
+                <li class="col-lg-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://a0.muscache.com/im/pictures/1ff6d909-5ba6-42f3-9d2c-fa2327780936.jpg?im_w=960'" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= home.houseName %></h5>
+                            <p class="card-text"><%= home.location %></p>
+                            <p class="card-text"><%= home.price %></p>
+                            <a href="#" class="btn btn-primary"><%= home.rating %></a>
+                        </div>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+        <a href="/add-home" class="">Add Home</a>    
+    </section>
+</body>
+</html> 
