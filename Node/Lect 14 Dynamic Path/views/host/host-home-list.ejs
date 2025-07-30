@@ -1,0 +1,25 @@
+<%- include("../partials/head") %>
+<body>
+    <%- include("../partials/nav") %>
+    <section class="border">
+        <h1>Hay Host Here are your Homes</h1>
+        <ul class="row">
+            <% registeredHomes.forEach(home => { %>
+                <li class="col-lg-3 mb-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= home.houseName %></h5>
+                            <p class="card-text"><%= home.location %></p>
+                            <p class="card-text"><%= home.price %></p>
+                            <a href="#" class="btn btn-primary"><%= home.rating %></a>
+                            <button  class="btn btn-warning">Edit</button>
+                            <button  class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+        <a href="/add-home" class="">Add Home</a>    
+    </section>
+</body>
+</html> 

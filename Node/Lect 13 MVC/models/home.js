@@ -17,10 +17,8 @@ module.exports = class Home {
     Home.fetchAll((registeredHomes) => {
       registeredHomes.push(this);
       const homeDataPath = path.join(pathUtil, "data", "homes.json");
-      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), (error) => {
-        console.log("File writing Concluded", (error) => {
-          console.log("file writing concluded", error);
-        });
+      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), error => {
+        console.log("file writing concluded", error);
       });
     });
   }
