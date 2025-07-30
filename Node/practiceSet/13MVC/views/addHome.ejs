@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Using local Bootstrap via Express route -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <title>Add Home Title</title>
+
+</head>
+
+<body>
+
+    <header>
+        <ul>
+            <li><a href="/">home</a></li>
+        </ul>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h1>Register Your Home Here: </h1>
+                    <form action="/home-added" class="border p-3 rounded-3" method="POST">
+                        <input placeholder="enter your name of house" class="form-control mb-3" type="text"
+                            name="houseName"></input>
+                        <input placeholder="Price per night " type="text" class="form-control mb-3"
+                            name="Price"></input>
+                        <input placeholder="Location" type="text" class="form-control mb-3" name="location"></input>
+                        <input placeholder="Rating" type="text" class="form-control mb-3" name="rating"></input>
+                        <input placeholder="enter  Photo url" type="text" class="form-control mb-3"
+                            name="photo"></input>
+                        <button type="submit" class="btn btn-success w-100">submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

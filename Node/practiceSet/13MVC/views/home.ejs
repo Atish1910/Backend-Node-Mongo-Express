@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Using local Bootstrap via Express route -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <title>I M Home Component Title</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/add-home">add homes</a></li>
+      </ul>
+    </header>
+    <section class="border">
+      <h1>Here are our register Homes</h1>
+      <ul>
+        <% registerHomes.forEach(home => { %>
+        <li>
+          <div class="card" style="width: 18rem">
+            <img src="lkasdlkdsja" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title"><%= home.houseName %></h5>
+              <p class="card-text"><%= home.location %></p>
+              <p class="card-text"><%= home.Price %></p>
+              <a href="#" class="btn btn-primary"><%= home.rating %></a>
+            </div>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+      <a href="/add-home" class="">Add Home</a>
+    </section>
+  </body>
+</html>

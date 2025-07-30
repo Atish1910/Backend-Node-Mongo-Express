@@ -17,7 +17,7 @@ hostRouter.post("/home-added", (req, res, next) => {
   registerHomes.push({
     houseName: req.body.houseName,
   });
-  res.render("home-added", {
+  res.render("/home-added", {
     pageTitle: "Home Added Successfully",
   });
 });
