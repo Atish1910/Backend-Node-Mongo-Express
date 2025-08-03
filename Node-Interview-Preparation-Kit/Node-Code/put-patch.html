@@ -1,0 +1,42 @@
+POST /user/submit-form 
+HTTP/1.1
+Host: ui-server.example.com
+User-Agent: Mozilla/5.0
+username=johndoe&password=pass123
+// content-information
+
+
+POST /api/user/create 
+HTTP/1.1
+Host: api-server.example.com
+User-Agent: Node.js App
+
+username=johndoe&password=pass123
+// content-information
+
+HTTP/1.1 201 Created
+Content-Type: application/json; 
+Content-Length: 42
+
+{
+  "userId": 123,
+  "message": "User created"
+}
+
+
+HTTP/1.1 200 OK
+Content-Type: text/html; 
+Content-Length: 158
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Submission Result</title>
+  </head>
+  <body>
+    <h1>User Created</h1>
+    <p>User ID: 123</p>
+    <p>Message: User created</p>
+  </body>
+</html>
+

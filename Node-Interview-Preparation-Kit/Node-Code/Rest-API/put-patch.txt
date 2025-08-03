@@ -1,0 +1,24 @@
+
+// PUT request URL: abc.com/users/111
+// PUT Request body
+{
+    id: 111,
+    name: happy,
+    email: x@x.com
+}
+
+// Existing User Resource
+{
+    id: 111,
+    name: interview,
+    email: x@x.com,
+    city: Delhi
+}
+
+
+// PUT Updated User Resource 
+{
+    id: 111,
+    name: happy,
+    email: x@x.com
+}

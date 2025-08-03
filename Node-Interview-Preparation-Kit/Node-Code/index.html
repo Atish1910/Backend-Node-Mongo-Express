@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Client</title>
+</head>
+<body>
+  <h1>API Client</h1>
+  <button onclick="makeRequest()">Make API Request</button>
+
+  <script>
+    function makeRequest() {
+      // Define the API endpoint
+      const apiUrl = 'http://localhost:3000';
+
+      // Make a GET request to the API endpoint using the fetch API
+      fetch(apiUrl)
+        .then(response => response.text())
+        .then(data => {
+          // Display the response from the server
+          alert(data);
+        })
+        .catch(error => {
+          // Handle any errors that occurred during the fetch
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+</html>
