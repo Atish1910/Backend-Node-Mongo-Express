@@ -18,7 +18,7 @@ module.exports = class Home {
     Home.fetchAll((registeredHomes) => {
       registeredHomes.push(this);
       const homeDataPath = path.join(pathUtil, "data", "homes.json");
-      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), error => {
+      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), (error) => {
         console.log("file writing concluded", error);
       });
     });
@@ -32,11 +32,10 @@ module.exports = class Home {
     });
   }
 
-  static findById(homeId,callback) {
-    this.fetchAll(homes => {
-
-    const homeFound =  homes.find(home => home.id === homeId);
-    callback(homeFound);
-    })
+  static findById(homeId, callback) {
+    this.fetchAll((homes) => {
+      const homeFound = homes.find((home) => home.id === homeId);
+      callback(homeFound);
+    });
   }
 };

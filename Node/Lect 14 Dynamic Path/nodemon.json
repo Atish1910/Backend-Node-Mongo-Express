@@ -1,7 +1,6 @@
 {
   "watch": ["."],
   "ext": "js, json, ejs",
-  "ignore": ["node_modules/", "data/"], 
-  "exec": "node app.js",
-  "note" : "when server is getting restart please ignaore data folder"
+  "ignore": ["node_modules/", "data/"],
+  "exec": "node app.js"
 }
