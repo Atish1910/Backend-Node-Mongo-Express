@@ -4,6 +4,7 @@ const pathUtils = require("./utils/pathUtils");
 const storeRouter = require("./routes/storeRouter");
 const exp = require("constants");
 const hostRouter = require("./routes/hostRouter");
+const { default: mongoose } = require("mongoose");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -22,6 +23,15 @@ app.use((req, res, next) => {
 });
 
 const PORT = 4200;
-app.listen(PORT, () => {
-  console.log(`Your server is running at ${PORT}`);
-});
+const DB_PATH = "mongodb+srv://atishkamble398:1FBtvmgZikJqoVmU@cluster0airbnb.vbjywzz.mongodb.net/airbnb?";
+
+mongoose.connect(DB_PATH).then(() => {
+  console.log("MongoDB is Connected");
+  app.listen(PORT, () => {
+    console.log(`Your server is running at ${PORT}`);
+  });
+}).catch((error) => {
+  console.log("Error To COnnect With MongoDB", error);
+})
+
+

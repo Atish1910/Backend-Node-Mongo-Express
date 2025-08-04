@@ -4,11 +4,12 @@ exports.getAddHome = (req, res, next) => {
   res.render("host/addHome");
 };
 exports.postAddHome = (req, res, next) => {
-  console.log("Home Registration successful for:", req.body);
-  const { houseName, price, location, rating, photoUrl } = req.body;
-  const home = new Home(houseName, price, location, rating, photoUrl);
-  home.save();
+  const { houseName, price, location, rating, photoUrl, description } = req.body;
+  const home = new Home({houseName, price, location, rating, photoUrl, description});
+  home.save().then(() => {
+    console.log("Home Saved Successfully", req.body);
 
-  save();
-  res.render("host/homeAdded");
-};
+  }).catch((error) => {
+    console.log("Error While Saving Home",error);
+  })
+}

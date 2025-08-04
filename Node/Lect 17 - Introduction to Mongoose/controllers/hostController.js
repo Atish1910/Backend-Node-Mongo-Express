@@ -44,7 +44,6 @@ exports.postAddHome = (req, res, next) => {
   home.save().then(() => {
     console.log("home Saved Successfully");
   });
-
   res.redirect("/host/host-home-list");
 };
 

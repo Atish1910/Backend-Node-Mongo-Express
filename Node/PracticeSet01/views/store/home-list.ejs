@@ -15,6 +15,24 @@
         <p>Here are all homes Listed</p>
         <a href="../host/add-home" class="">Add Home</a>
       </div>
+      <div class="container pt-5">
+        <div class="row">
+          <% registeredHomes.forEach((home) => { %>
+          <div class="col-lg-4 border p-2 ">
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">HouseName : <%= home.houseName %></h5>
+                <p class="card-text">Location : <%= home.location %></p>
+                <p class="card-text">Ratings : <%= home.ratings %></p>
+                <p class="card-text">Description : </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
     </section>
   </body>
 </html>
