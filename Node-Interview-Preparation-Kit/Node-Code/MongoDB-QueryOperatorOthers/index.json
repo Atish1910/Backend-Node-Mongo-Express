@@ -1,0 +1,25 @@
+,
+
+[
+  // users collection
+  { "_id": 1, "name": "Happy", "age": 35 },
+  { "_id": 2, "name": "Anurag", "age": 25 },
+  { "_id": 3, "name": "Rawat", "age": 30 }
+]
+
+,
+
+[
+  // users collection
+  { "_id": 1, "name": "Anurag"},
+  { "_id": 2, "name": "Happy"},
+  { "_id": 3, "name": "Rawat"}
+]
+
+{
+  "Anurag": [1],
+  "Happy": [2],
+  "Rawat": [3]
+}
+
+
