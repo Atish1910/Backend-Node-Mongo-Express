@@ -6,6 +6,9 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getHomes = (req, res, next) => {
-    res.render("store/home-list",{
+  Home.find().then((registeredHomes) => {
+    res.render("store/home-list", {
+      registeredHomes : registeredHomes
+    })
   })
 };

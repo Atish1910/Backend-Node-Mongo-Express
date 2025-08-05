@@ -4,6 +4,12 @@ const path = require("path");
 // External Module
 const express = require("express");
 
+// use session
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
+
+const DB_PATH ="mongodb+srv://atishkamble398:1FBtvmgZikJqoVmU@cluster0airbnb.vbjywzz.mongodb.net/airbnb?";
+
 //Local Module
 const storeRouter = require("./routes/storeRouter");
 const hostRouter = require("./routes/hostRouter");
@@ -14,16 +20,26 @@ const authRouter = require("./routes/authRouter");
 
 const app = express();
 
+const store = new MongoDBStore({
+  uri : DB_PATH,
+  collection : "sessions"
+})
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.urlencoded());
+app.use(session ({
+  secret : "Knowlage ai with learing",
+  resave : false,
+  saveUninitialized : true,
+  store : store
+}))
+
 
 app.use((req, res, next) => {
   // console.log(req.get('Cookie'));
-  req.isLoggedIn = req.get("Cookie")
-    ? req.get("Cookie").split("=")[1] === "true"
-    : false;
+  req.isLoggedIn = req.session.isLoggedIn
   next();
 });
 
@@ -45,8 +61,6 @@ app.use(express.static(path.join(rootDir, "public")));
 app.use(errorsController.pageNotFound);
 
 const PORT = 4209;
-const DB_PATH =
-  "mongodb+srv://atishkamble398:1FBtvmgZikJqoVmU@cluster0airbnb.vbjywzz.mongodb.net/airbnb?";
 
 mongoose
   .connect(DB_PATH)

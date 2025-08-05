@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>airbnb Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <%- include('../partials/bootstrap') %>
+  </head>
+  <body>
+    <section><%- include('../partials/nav') %></section>
+    <section>
+      <div class="container border">
+        <h1>Welcome to airbnb</h1>
+        <p>Here are all homes Listed</p>
+        <a href="../host/add-home" class="">Add Home</a>
+      </div>
+      <div class="container pt-5">
+        <div class="row">
+          <% registeredHomes.forEach((home) => { %>
+          <div class="col-lg-4 border p-2 ">
+            <div class="card" style="width: 18rem;">
+              <img src="https://th.bing.com/th/id/R.d5c5f2246919265f53e6f56f80071dd3?rik=Q7O1od8exJDnbQ&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f37%2f82%2fBI78kU.jpg&ehk=yP98fVqkFdzsxnJdZ17FmIQKByMdglW%2bEUXxXB7Mf6o%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= home.houseName %></h5>
+                <p class="card-text">Price : <%= home.price %></p>
+                <a href="edit-home/<%= home._id %>" class="btn btn-warning">Edit</a>
+                <form action="/host/delete-home/<%= home._id %>">
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

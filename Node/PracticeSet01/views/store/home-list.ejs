@@ -20,13 +20,10 @@
           <% registeredHomes.forEach((home) => { %>
           <div class="col-lg-4 border p-2 ">
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="https://th.bing.com/th/id/R.d5c5f2246919265f53e6f56f80071dd3?rik=Q7O1od8exJDnbQ&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f37%2f82%2fBI78kU.jpg&ehk=yP98fVqkFdzsxnJdZ17FmIQKByMdglW%2bEUXxXB7Mf6o%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">HouseName : <%= home.houseName %></h5>
+                <h5 class="card-title"><%= home.houseName %></h5>
                 <p class="card-text">Location : <%= home.location %></p>
-                <p class="card-text">Ratings : <%= home.ratings %></p>
-                <p class="card-text">Description : </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
