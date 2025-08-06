@@ -1,32 +1,67 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/homes">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/host/host-home-list">Host Home List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/host/add-home">Add Homes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/host/edit-home">Edit Home</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class="bg-danger py-3 shadow">
+  <nav class="container d-flex justify-content-between align-items-center">
+    <ul class="nav">
+      <li class="nav-item">
+        <a
+          href="/"
+          class="nav-link px-3 rounded <%= currentPage === 'index' ? 'bg-white text-danger' : '' %>"
+          >airbnb</a
+        >
+      </li>
+
+      <% if (isLoggedIn) { %>
+      <li class="nav-item">
+        <a
+          href="/homes"
+          class="nav-link px-3 rounded <%= currentPage === 'Home' ? 'bg-white text-danger' : '' %>"
+          >Homes-List</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/favourites"
+          class="nav-link px-3 rounded <%= currentPage === 'favourites' ? 'bg-white text-danger' : '' %>"
+          >Favourites</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/bookings"
+          class="nav-link px-3 rounded <%= currentPage === 'bookings' ? 'bg-white text-danger' : '' %>"
+          >Bookings</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/host/host-home-list"
+          class="nav-link px-3 rounded <%= currentPage === 'host-homes' ? 'bg-white text-danger' : '' %>"
+          >Host Homes</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/host/add-home"
+          class="nav-link px-3 rounded <%= currentPage === 'addHome' ? 'bg-white text-danger' : '' %>"
+          >Add Home</a
+        >
+      </li>
+      <% } %>
+
+      <li class="nav-item">
+        <% if (!isLoggedIn) { %>
+        <a href="/login" class="nav-link px-3 rounded">Login</a>
+        <% } else { %>
+        <form action="/logout" method="POST" class="d-inline">
+          <button type="submit" class="btn btn-outline-light btn-sm ms-2">
+            Logout
+          </button>
+        </form>
+        <% } %>
+      </li>
+    </ul>
+  </nav>
+</header>

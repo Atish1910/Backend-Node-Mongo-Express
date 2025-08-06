@@ -1,0 +1,68 @@
+<header class="bg-danger py-3 shadow">
+  <nav class="container d-flex justify-content-between align-items-center">
+    <ul class="nav">
+      <li class="nav-item">
+        <a
+          href="/"
+          class="nav-link px-3 rounded <%= currentPage === 'index' ? 'bg-white text-danger' : '' %>"
+          >airbnb</a
+        >
+      </li>
+
+      <% if (isLoggedIn) { %>
+      <li class="nav-item">
+        <a
+          href="/homes"
+          class="nav-link px-3 rounded <%= currentPage === 'Home' ? 'bg-white text-danger' : '' %>"
+          >Homes-List</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/favourites"
+          class="nav-link px-3 rounded <%= currentPage === 'favourites' ? 'bg-white text-danger' : '' %>"
+          >Favourites</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/bookings"
+          class="nav-link px-3 rounded <%= currentPage === 'bookings' ? 'bg-white text-danger' : '' %>"
+          >Bookings</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/host/host-home-list"
+          class="nav-link px-3 rounded <%= currentPage === 'host-homes' ? 'bg-white text-danger' : '' %>"
+          >Host Homes</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="/host/add-home"
+          class="nav-link px-3 rounded <%= currentPage === 'addHome' ? 'bg-white text-danger' : '' %>"
+          >Add Home</a
+        >
+      </li>
+      <% } %>
+
+      <li class="nav-item d-flex align-items-center">
+        <% if (!isLoggedIn) { %>
+        <a href="/login" class="nav-link px-3 rounded">Login</a>
+        <a href="/signup" class="nav-link px-3 rounded">Signup</a>
+        <% } else { %>
+        <form action="/logout" method="POST" class="d-inline">
+          <button type="submit" class="btn btn-outline-light btn-sm ms-2">
+            Logout
+          </button>
+        </form>
+        <% } %>
+      </li>
+    </ul>
+  </nav>
+</header>
