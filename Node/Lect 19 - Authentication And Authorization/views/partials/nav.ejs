@@ -9,7 +9,8 @@
         >
       </li>
 
-      <% if (isLoggedIn) { %>
+      <% if (isLoggedIn ) { %>
+        <% if (user && user.userType === "guest" ) { %>
       <li class="nav-item">
         <a
           href="/homes"
@@ -33,6 +34,7 @@
           >Bookings</a
         >
       </li>
+      <% } else { %>
 
       <li class="nav-item">
         <a
@@ -49,6 +51,7 @@
           >Add Home</a
         >
       </li>
+      <% } %>
       <% } %>
 
       <li class="nav-item d-flex align-items-center">

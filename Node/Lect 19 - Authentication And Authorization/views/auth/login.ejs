@@ -9,11 +9,13 @@
           </h1>
 
           <form action="/login" method="POST">
+            <%- include('../partials/errors') %>    
             <div class="mb-3">
               <input
-                type="text"
-                name="username"
-                placeholder="Email/Username"
+                type="email"
+                name="email"
+                value="<%= oldInput.email ? oldInput.email : '' %>"
+                placeholder="Enter Your Email"
                 class="form-control"
                 required
               />
