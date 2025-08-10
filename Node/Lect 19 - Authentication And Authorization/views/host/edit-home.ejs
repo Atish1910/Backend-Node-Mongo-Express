@@ -8,7 +8,7 @@
             <%= editing ? "Edit" : "Register" %> Your Home on AirBnB
           </h1>
 
-          <form action="/host/<%= editing ? "edit-home" : "add-home" %>" method="POST" class="mx-auto">
+          <form action='/host/<%= editing ? "edit-home" : "add-home" %>' enctype="multipart/form-data " method="POST" class="mx-auto">
             <input type="hidden" name="id" value="<%= editing ? home._id : '' %>" />
 
             <div class="mb-3">
@@ -53,12 +53,12 @@
 
             <div class="mb-3">
               <input
-                type="text"
-                name="photoUrl"
-                value="<%= editing ? home.photoUrl : '' %>"
-                placeholder="Enter Photo URL"
+              name="photo"
+                multiple
+                accept="image/*"
+                type="file"
                 class="form-control"
-                required />
+                />
             </div>
 
             <div class="mb-3">

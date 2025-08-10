@@ -1,0 +1,84 @@
+<%- include('../partials/head') %>
+    <%- include('../partials/nav') %>
+
+    <main class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 bg-white p-4 rounded shadow-sm">
+          <h1 class="h3 text-center text-dark fw-bold mb-4">
+            <%= editing ? "Edit" : "Register" %> Your Home on AirBnB
+          </h1>
+
+          <form action='/host/<%= editing ? "edit-home" : "add-home" %>' enctype="multipart/form-data" method="POST" class="mx-auto">
+            <input type="hidden" name="id" value="<%= editing ? home._id : '' %>" />
+
+            <div class="mb-3">
+              <input
+                type="text"
+                name="houseName"
+                value="<%= editing ? home.houseName : '' %>"
+                placeholder="Enter your House Name"
+                class="form-control"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                name="price"
+                value="<%= editing ? home.price : '' %>"
+                placeholder="Price Per Night"
+                class="form-control"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                name="location"
+                value="<%= editing ? home.location : '' %>"
+                placeholder="Location"
+                class="form-control"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                name="rating"
+                value="<%= editing ? home.rating : '' %>"
+                placeholder="Rating"
+                class="form-control"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <input
+              name="photo"
+                multiple
+                accept="image/*"
+                type="file"
+                class="form-control"
+                />
+            </div>
+
+            <div class="mb-3">
+              <textarea
+                name="description"
+                placeholder="Describe your home"
+                class="form-control"
+                rows="4"
+                required><%= editing ? home.description : '' %></textarea>
+            </div>
+
+            <div class="d-grid">
+              <input
+                type="submit"
+                value="<%= editing ? 'Update Home' : 'Add Home' %>"
+                class="btn btn-danger" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
