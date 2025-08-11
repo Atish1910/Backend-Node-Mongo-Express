@@ -1,0 +1,152 @@
+<%- include('../partials/head') %>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+</head>
+<body class="bg-light">
+  <%- include('../partials/nav') %>
+
+  <main class="container mt-5 bg-white shadow rounded p-5" style="max-width: 700px;">
+    <h1 class="h3 fw-bold mb-4 text-center border-bottom pb-3 text-dark">Create Your Account</h1>
+
+    <form action="/signup" method="POST">
+      <%- include('../partials/errors') %>
+
+      <!-- Name Fields -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              class="form-control"
+              placeholder="John"
+              value="<%= oldInput.firstName ? oldInput.firstName : '' %>"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="form-control"
+              placeholder="Doe"
+              value="<%= oldInput.lastName ? oldInput.lastName : '' %>"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="your.email@example.com"
+            value="<%= oldInput.email ? oldInput.email : '' %>"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter Your Password"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-4">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            class="form-control"
+            placeholder="Confirm Your Password"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- User Type -->
+      <div class="mb-4 border p-3 rounded bg-light">
+        <label class="form-label mb-2">I want to register as:</label>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="userType"
+            id="guest"
+            value="guest"
+            <%= oldInput.userType === "guest" ? "checked" : "" %>
+          />
+          <label class="form-check-label" for="guest">Guest</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="userType"
+            id="host"
+            value="host"
+            <%= oldInput.userType === "host" ? "checked" : "" %>
+          />
+          <label class="form-check-label" for="host">Host</label>
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <div class="mb-4 form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+           name="terms" id="terms" 
+          required
+        />
+        <label class="form-check-label" for="terms">
+          I agree to the <a href="#" class="text-danger text-decoration-underline">terms and conditions</a>
+        </label>
+      </div>
+
+      
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-danger w-100 d-flex justify-content-center align-items-center">
+        Register <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+
+      <!-- Login Link -->
+      <p class="text-center mt-3 text-muted">
+        Already have an account? <a href="/login" class="text-danger text-decoration-underline">Log in</a>
+      </p>
+    </form>
+  </main>
+</body>
+</html>

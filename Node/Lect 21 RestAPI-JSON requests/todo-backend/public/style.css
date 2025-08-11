@@ -1,0 +1,91 @@
+/* === General Reset/Overrides === */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* === Headings === */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+/* === Navbar Custom === */
+.navbar-custom {
+  background-color: #ff5a5f;
+}
+a {
+  color: white !important;
+}
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+  color: #fff;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ffe0e2;
+}
+
+/* === Buttons === */
+.btn-custom-red {
+  background-color: #ff5a5f;
+  color: #fff;
+  border: none;
+}
+
+.btn-custom-red:hover {
+  background-color: #e0484c;
+}
+
+.btn-custom-green {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-custom-green:hover {
+  background-color: #388e3c;
+}
+
+/* === Cards === */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
+}
+
+/* === Form Inputs === */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5rem;
+  width: 100%;
+  transition: border 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ff5a5f;
+  outline: none;
+}
+
+/* === Custom Utilities === */
+.text-danger-custom {
+  color: #ff5a5f;
+}
+
+.bg-light-gray {
+  background-color: #f1f1f1;
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}

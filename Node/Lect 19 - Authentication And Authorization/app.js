@@ -33,7 +33,7 @@ app.use(
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.use(express.urlencoded());
+app.use(express.urlencoded()); //
 app.use(
   session({
     secret: "Knowlage ai with learing",
